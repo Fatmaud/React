@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const UseEffectAxiosFetch = () => {
-  const [people, setPeople] = useState([]);
-
   //!1.yol fetch then yapısı (chain): bu yolda fetchi useEffect le sarmalladik.Bu sekilde yapilabilir.
   // useEffect(() => {
   //   fetch("https://jsonplaceholder.typicode.com/users")
@@ -30,19 +28,10 @@ const UseEffectAxiosFetch = () => {
   // }, []);
 
   //!4.yol: axios async await:
-  const getData = async () => {
-    const res = await axios("https://jsonplaceholder.typicode.com/users");
-    //console.log(data);
-
-    setPeople(res.data);
-  };
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <div className="container text-center mt-4">
-      <div className="row">
+      {/* <div className="row">
         {people.map(({ name, username, phone, id }) => {
           return (
             <div key={id} className="col-12 col-sm-6 col-md-4">
@@ -55,7 +44,7 @@ const UseEffectAxiosFetch = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

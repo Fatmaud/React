@@ -14,7 +14,7 @@ const App = () => {
         SHOW
       </button>
 
-      {/* {show && <LifecycleMethods />} */}
+      {show && <LifecycleMethods />}
 
       {/* {show && <Clock />} */}
       <UseEffectAxiosFetch />

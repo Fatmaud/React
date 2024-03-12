@@ -43,7 +43,11 @@ const Home = () => {
   return (
     <>
       <AddBilgi postTutorial={postTutorial} />
-      <BilgiList tutorials={tutorials} deleteTutorial={deleteTutorial} />
+      <BilgiList
+        tutorials={tutorials}
+        deleteTutorial={deleteTutorial}
+        getTutorials={getTutorials}
+      />
     </>
   );
 };

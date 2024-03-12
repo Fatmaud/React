@@ -5,8 +5,17 @@ import AddPatients from "../components/AddPatients";
 const Home = () => {
   const [doctors, setDoctors] = useState(doctorsData);
   const [patients, setPatients] = useState(patientsData);
+
+  const [show, setShow] = useState(true);
+
+  const doctorClick = (idD) => {
+    setShow(!show);
+
+    setDoctors(show ? doctors.filter((a) => a.id === idD) : doctorsData);
+  };
+
   return (
-    <div>
+    <div style={{ display: show ? "block" : "flex" }}>
       <div>
         <header>
           <h1>Hospital</h1>
@@ -16,21 +25,40 @@ const Home = () => {
               <div key={dr.id} className="dr-info ">
                 <img
                   className="btn"
+                  style={{ background: show ? "yellow" : "orange" }}
                   src={dr.doctorImg}
                   width="180px"
                   height="150px"
                   alt=""
+                  onClick={() => doctorClick(dr.id)}
                 />
-                <h4>{dr.doctorName}</h4>
+                <h4
+                  style={{
+                    background: show ? "yellow" : "orange",
+                    borderLeft: `10px solid ${show ? "orange" : "yellow"}`,
+                    marginTop: "5px",
+                  }}
+                >
+                  {dr.doctorName}
+                </h4>
               </div>
             ))}
           </div>
         </header>
-
-        <AddPatients patients={patients} setPatients={setPatients} />
+        {!show && (
+          <AddPatients
+            patients={patients}
+            setPatients={setPatients}
+            doctors={doctors}
+          />
+        )}
       </div>
 
-      <PatientList patients={patients} setPatients={setPatients} />
+      <PatientList
+        patients={patients}
+        setPatients={setPatients}
+        doctors={doctors}
+      />
     </div>
   );
 };
