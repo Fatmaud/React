@@ -1,9 +1,11 @@
-import React from 'react'
-import data from "../data.js"
+import React from "react";
+import data from "../data.js";
 import { Container, Col, Card, Row, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 const CourseCard = () => {
+  const navigate = useNavigate();
   return (
-    <Container>
+    <Container className="text-center">
       <Row>
         {data.map(({ img, name, text, id }) => {
           //!arrow (map) süslü kullandığında return ister.reactta süslü koymayabilirsiniz, o zaman returne de ihtiyaç olmaz
@@ -23,7 +25,12 @@ const CourseCard = () => {
                 <Card.Body>
                   <Card.Title>{name}</Card.Title>
                   <Card.Text>{text}</Card.Text>
-                  <Button variant="info">Primary</Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => navigate(`/courses/${name}`)}
+                  >
+                    DETAILS
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -32,6 +39,6 @@ const CourseCard = () => {
       </Row>
     </Container>
   );
-}
+};
 
-export default CourseCard
+export default CourseCard;

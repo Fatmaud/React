@@ -5,7 +5,7 @@ const Clock = () => {
   // //?                       USEEFFECT HOOK
   // //?==================================================================
   // //! use Effect Hook,function componentlerde yan etkiler gerçekleştirmenizi sağlar.
-  // //! useEffect Hook'u componentDidMount, componentDidUpdate ve componentWillUnmount olarak düşünebiliriz..setInterval, fetch axios ile veri çekme ve mesela dizi her değiştiğinde set et (yani istediğim bişeyi yap) demek için kullanılır
+  // //! useEffect Hook'u componentDidMount, componentDidUpdate ve componentWillUnmount olarak düşünebiliriz. setInterval, fetch axios ile veri çekme ve mesela dizi her değiştiğinde set et (yani istediğim bişeyi yap) demek için kullanılır.
 
   // //! useEffect(() => {
   // //*   /* ComponentDidMount code */
@@ -34,25 +34,26 @@ const Clock = () => {
   const [sayac, setSayac] = useState(0);
 
   //!componentDidMount= ilk render da çalış bir daha burayı görme
-  //   useEffect(() => {
-  //     const zaman = setInterval(() => {
-  //       console.log("merhaba");
+  useEffect(() => {
+    const zaman = setInterval(() => {
+      console.log("merhaba");
 
-  //       setTime(moment());
-  //     }, 1000);
+      setTime(moment());
+    }, 1000);
 
-  //     //!component kapandığında yada başka sayfaya gidildiğinde çalışmamız dursun istersek alttaki return ü yazıyoruz
-  //     //!componentWillUnmount()
-  //     return () => {
-  //       console.log("başka sayfaya gidildi");
+    //     //!component kapandığında yada başka sayfaya gidildiğinde çalışmamız dursun istersek alttaki return ü yazıyoruz
+    //     //!componentWillUnmount()
+    return () => {
+      console.log("başka sayfaya gidildi");
 
-  //       clearInterval(zaman);
-  //     };
-  //   }, []);
+      clearInterval(zaman);
+    };
+  }, []);
 
   //! sayac değişkeni her değiştiğinde olmasını istediğim extra olaylar için alttaki useEffect. componentDidUpdate
   useEffect(() => {
-    sayac > 0 && alert("sayac arttırıldı");
+    // sayac + 1 && alert("sayac arttırıldı");
+    // sayac - 1 && alert("sayac azaltildi"); //sayac her degistiginde alert cikiyor.
   }, [sayac]);
 
   return (
@@ -66,7 +67,10 @@ const Clock = () => {
         <h2>****************************</h2>
         <h1>SAYAC: {sayac} </h1>
         <button className="btn btn-warning" onClick={() => setSayac(sayac + 1)}>
-          ARTTIR
+          arttir
+        </button>
+        <button className="btn btn-warning" onClick={() => setSayac(sayac - 1)}>
+          azalt
         </button>
       </div>
     </div>

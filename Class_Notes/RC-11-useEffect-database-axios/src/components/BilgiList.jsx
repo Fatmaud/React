@@ -3,10 +3,10 @@ import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import EditBilgi from "./EditBilgi";
 
-const BilgiList = ({ tutorials, deleteTutorial, getTutorials }) => {
-  //console.log(tutorials);
+const BilgiList = ({ tutoriaal }) => {
+  //console.log(tutoriaal);
 
-  const [item, setItem] = useState("");
+  // const [item, setItem] = useState("");
 
   //deleteTutorial fonksiyonu parenttan (Home) geldi:
   // const deleteTutorial = async (id) => {
@@ -17,7 +17,7 @@ const BilgiList = ({ tutorials, deleteTutorial, getTutorials }) => {
 
   return (
     <div className="container mt-4">
-      <table className="table table-striped">
+      {/* <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col">#id</th>
@@ -58,7 +58,7 @@ const BilgiList = ({ tutorials, deleteTutorial, getTutorials }) => {
         </tbody>
       </table>
       {/* Modal kismi--editBilgi sayfasindan gelecek */}
-      <EditBilgi item={item} setItem={setItem} />
+      {/* <EditBilgi item={item} setItem={setItem} /> */}
     </div>
   );
 };

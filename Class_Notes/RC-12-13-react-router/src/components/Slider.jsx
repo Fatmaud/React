@@ -3,21 +3,21 @@ import { Carousel } from "react-bootstrap";
 import isa from "../img/isa.jpeg";
 import devops from "../img/devops.jpeg";
 import about from "../img/about.jpeg";
+import "./app.css";
 const Slider = () => {
-  return (
-    // !!!!!!!!!!!
-    //! fade=soluklaşarak diğer resme geç, autoPlay={true} otomatik resim değiş, interval={5000} 5 saniyede bir değiş. slide={false} otomatik geçişi iptal et.
-    //! carusel in bootstrap ten gelen default attribute u autoPlay={true}.
+  // !!!!!!!!!!!
+  //! fade=soluklaşarak diğer resme geç, autoPlay={true} otomatik resim değiş, interval={5000} 5 saniyede bir değiş. slide={false} otomatik geçişi iptal et
 
-    <Carousel variant="dark" interval={5000}>
+  return (
+    <Carousel className='"carousel' fade autoPlay={true} interval={5000}>
       <Carousel.Item>
-        <img className="w-100 " src={about} />
+        <img className="w-100" src={isa} alt="" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="w-100 " src={devops} />
+        <img className="w-100" src={devops} alt="" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="w-100 " src={isa} />
+        <img className="w-100" src={about} alt="" />
       </Carousel.Item>
     </Carousel>
   );
