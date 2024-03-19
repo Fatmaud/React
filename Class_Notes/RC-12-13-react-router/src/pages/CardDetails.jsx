@@ -1,52 +1,42 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import data from "../data";
-import { Container, Col, Card } from "react-bootstrap";
+import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import data from "../data"
 const CardDetails = () => {
-  const { namee } = useParams();
+  //router dan path olarak gelen namee burada useParams hook u ile yakalandı
+ const {namee}=   useParams()
 
-  //!tekrar bir önceki sayfaya dönebilmek icin **useNavigate** kullaniyorz⬇:
 
-  const navigate = useNavigate();
-
+ //tekrar bir önceki sayfaya dönebilmek için useNavigate
+const navigate=useNavigate()
   return (
-    <div>
+    <div className="container text-center mt-4">
       {data.map(
-        ({ name, text, yorum, img, id }) =>
+        ({ name, text, yorum, img }) =>
           name === namee && (
-            <Col
-              className="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center text-center"
-              // react-bootstrap responsivliği
-              // sm={12}
-              // md={6}
-              // lg={4}
-              // key={id}
-            >
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={img} />
-                <Card.Body>
-                  <Card.Title>{name}</Card.Title>
-                  <Card.Text>{text}</Card.Text>
-                  <Card.Text>{yorum}</Card.Text>
-                  <button
-                    className="btn btn-warning me-1"
-                    onClick={() => navigate(-1)}
-                  >
-                    GO BACK
-                  </button>
-                  <button
-                    className="btn btn-success"
-                    onClick={() => navigate("/")}
-                  >
-                    GO HOME
-                  </button>
-                </Card.Body>
-              </Card>
-            </Col>
+            <div>
+              <h3>{name}</h3>
+              <img src={img} alt="" width="300px" />
+              <h3>{text} </h3>
+              <h4>{yorum} </h4>
+              <div>
+                <button
+                  className="btn btn-warning"
+                  onClick={() => navigate(-1)}
+                >
+                  GO BACK
+                </button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => navigate("/")}
+                >
+                  GO HOME
+                </button>
+              </div>
+            </div>
           )
       )}
     </div>
   );
-};
+}
 
-export default CardDetails;
+export default CardDetails

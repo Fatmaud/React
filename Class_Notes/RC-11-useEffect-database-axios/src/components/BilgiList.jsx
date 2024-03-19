@@ -6,7 +6,7 @@ import EditBilgi from "./EditBilgi";
 const BilgiList = ({ tutoriaal }) => {
   //console.log(tutoriaal);
 
-  // const [item, setItem] = useState("");
+  const [item, setItem] = useState("");
 
   //deleteTutorial fonksiyonu parenttan (Home) geldi:
   // const deleteTutorial = async (id) => {
@@ -17,7 +17,7 @@ const BilgiList = ({ tutoriaal }) => {
 
   return (
     <div className="container mt-4">
-      {/* <table className="table table-striped">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col">#id</th>
@@ -29,7 +29,7 @@ const BilgiList = ({ tutoriaal }) => {
           </tr>
         </thead>
         <tbody>
-          {tutorials.map(({ id, title, description }) => {
+          {tutoriaal.map(({ id, title, description }) => {
             return (
               <tr key={id}>
                 <th>{id}</th>
@@ -49,7 +49,6 @@ const BilgiList = ({ tutoriaal }) => {
                     type="button"
                     className="text-danger }"
                     size={22}
-                    onClick={() => deleteTutorial(id)}
                   />
                 </td>
               </tr>

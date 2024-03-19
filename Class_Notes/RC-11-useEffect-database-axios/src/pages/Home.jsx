@@ -21,6 +21,7 @@ const Home = () => {
 
   return (
     <>
+      <AddBilgi />
       <BilgiList tutoriaal={tutorials} />
     </>
   );

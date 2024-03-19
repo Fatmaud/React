@@ -3,8 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 //! lifreCycle - useEffect teki UseEffectAxios.jsx componenti
 const Teacher = () => {
-  const navigate = useNavigate();
+  const navigate=useNavigate()
   const [people, setPeople] = useState([]);
+
+
 
   //!4.yol axios async await
 
@@ -12,6 +14,7 @@ const Teacher = () => {
     const res = await axios("https://jsonplaceholder.typicode.com/users");
 
     setPeople(res.data);
+ 
   };
   useEffect(() => {
     getData();
@@ -27,7 +30,10 @@ const Teacher = () => {
               <img
                 src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${kisi.name}`}
                 alt=""
-                onClick={() => navigate(`/teacher/${kisi.id}`)}
+                 onClick={()=>navigate(`/teacher/${kisi.id}`)}
+                // onClick={() =>
+                //   navigate(`/teacher/${kisi.id}`, { state: { kisi } })
+                // }
               />
               <h5>{kisi.name}</h5>
               <h6>{kisi.username} </h6>
@@ -41,3 +47,4 @@ const Teacher = () => {
 };
 
 export default Teacher;
+

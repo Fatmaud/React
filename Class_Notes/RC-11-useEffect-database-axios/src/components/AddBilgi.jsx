@@ -1,20 +1,12 @@
 import React, { useState } from "react";
 
 const AddBilgi = (postTutorial) => {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  //!submit edildiginde input a yazilan bilgiyi database e yollama(POST etme):
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    //!submit edildiginde input a yazilan bilgiyi database e yollama(POST etme):
-
-    postTutorial({ title: title, description: desc });
-  };
   return (
     <div className="container text-center mt-4">
       <h1 className="display-6 text-danger">Add Your Tutorial</h1>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
             Title
@@ -25,7 +17,6 @@ const AddBilgi = (postTutorial) => {
             id="title"
             placeholder="Enter your title"
             required
-            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -38,7 +29,6 @@ const AddBilgi = (postTutorial) => {
             id="desc"
             placeholder="Enter your Description"
             required
-            onChange={(e) => setDesc(e.target.value)}
           />
         </div>
         <button type="submit" className="btn btn-danger mb-4">

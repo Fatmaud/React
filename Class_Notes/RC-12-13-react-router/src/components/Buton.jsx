@@ -3,18 +3,17 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Buton = () => {
-  let navigate = useNavigate();
-
+  const navigatE = useNavigate();
   return (
     <div className="text-center">
-      <Button
-        className="btn btn-danger p-2 px-4 m-3"
-        onClick={() => navigate("/login")}
+      {/* <Button
+        className="btn btn-danger p-4 m-2 w-25"
+        onClick={() => navigatE("/login")}
       >
         LOGIN
       </Button>
-      <Button className="btn btn-danger p-2 px-4 m-3">CLOSE</Button>
-      <Button className="btn btn-danger p-2 px-4 m-3">DELETE</Button>
+      <Button className="btn btn-danger p-4 m-2 w-25">KAPA</Button>
+      <Button className="btn btn-danger p-4 m-2 w-25">SİL</Button> */}
     </div>
   );
 };
