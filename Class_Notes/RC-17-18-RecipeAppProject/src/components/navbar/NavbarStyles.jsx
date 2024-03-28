@@ -52,16 +52,17 @@ export const Menu = styled.div`
   /* içinde bulunduğu div in  stillerine göre ayarla kendini, bunu yazmazsak food app in altında kalacak */
   /* 3 kelime  açılınca üstteki özelliklerde olsun*/
   @media (max-width: 768px) {
-     /* overflow: hidden;  */
-   /* display: none; */
-    /* tamamen gizler, hamburger tıklanınca bile açılmaz, o yüzden hidden kullandık */
     /* uzun yazı olurda taşarsa gizle (hamburgere dönüşünce)*/
     flex-direction: column;
 
     width: 100%;
-  
+
+    //?navbar.jsx te yazdigimiz open state ve ona bagladigimiz show a burada ternary ile menünün gözükmesi ve kaybolmasi seklinde stilini verdik.
+
+    display: ${({ show }) => (show ? "flex" : "none")};
   }
-/* export const Mlink=styled.a */
+
+  /* export const Mlink=styled.a */
   a {
     padding: 1rem 2rem;
     cursor: pointer;
@@ -108,12 +109,10 @@ export const Logo = styled(MenuLink)`
 export const Hamburger = styled.div`
   display: none;
   /* Bir öğeyi gizleme özelliği  Öğe gizlenecek ve sayfa, öğe orada değilmiş gibi alttaki stiller yok gibi görüntülenecektir: hamburger ekran büyükken görünmesin 768 den küçülmeye başlayınca görünsün*/
-  
+
   cursor: pointer;
-  
-@media (max-width: 768px) {
-display: flex;
 
-}
-
+  @media (max-width: 768px) {
+    display: flex;
+  }
 `;
